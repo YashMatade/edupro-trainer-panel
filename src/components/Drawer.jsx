@@ -2,7 +2,8 @@ import { Drawer, IconButton, List, ListItemButton, ListItemIcon } from '@mui/mat
 import ListItemText from '@mui/material/ListItemText';
 import React, { useState } from 'react'
 import MenuIcon from '@mui/icons-material/Menu';
-const pages = ["Dashboard", "Courses", "Users", "Change-password", "Login"]
+import LoginForm from './LoginForm'
+// const pages = ["Dashboard", "Courses", "Users", "Change-password", "Login"]
 
 const DrawerComp = () => {
 
@@ -12,7 +13,7 @@ const DrawerComp = () => {
             <Drawer open={openDrawer} onClose={() => setOpenDrawer(false)}>
                 <List>
 
-                {
+                    {/* {
                     pages.map((page)=>{
                        return <ListItemButton onClick={()=>setOpenDrawer(false)}>
                         <ListItemIcon>
@@ -22,8 +23,46 @@ const DrawerComp = () => {
                         </ListItemIcon>
                     </ListItemButton>
                     })
-                }
+                } */}
+                    <ListItemButton onClick={() => setOpenDrawer(false)}>
+                        <ListItemIcon>
+                            <ListItemText>
+                                Dashboard
+                            </ListItemText>
+                        </ListItemIcon>
+                    </ListItemButton>
                     
+                    <ListItemButton onClick={() => setOpenDrawer(false)}>
+                        <ListItemIcon>
+                            <ListItemText>
+                                Courses
+                            </ListItemText>
+                        </ListItemIcon>
+                    </ListItemButton>
+
+                    <ListItemButton onClick={() => setOpenDrawer(false)}>
+                        <ListItemIcon>
+                            <ListItemText>
+                                Users
+                            </ListItemText>
+                        </ListItemIcon>
+                    </ListItemButton>
+
+                    <ListItemButton onClick={() => setOpenDrawer(false)}>
+                        <ListItemIcon>
+                            <ListItemText>
+                                Change-password
+                            </ListItemText>
+                        </ListItemIcon>
+                    </ListItemButton>
+
+                    <ListItemButton >
+                        <ListItemIcon>
+                            <ListItemText>
+                                <LoginForm />
+                            </ListItemText>
+                        </ListItemIcon>
+                    </ListItemButton>
                 </List>
             </Drawer>
             <IconButton sx={{ color: "white", marginLeft: "auto" }} onClick={() => setOpenDrawer(!openDrawer)}>
