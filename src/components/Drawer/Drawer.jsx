@@ -2,7 +2,7 @@ import { Drawer, IconButton, List, ListItemButton, ListItemIcon } from '@mui/mat
 import ListItemText from '@mui/material/ListItemText';
 import React, { useState } from 'react'
 import MenuIcon from '@mui/icons-material/Menu';
-import LoginForm from './LoginForm'
+import LoginForm from '../LoginForm'
 // const pages = ["Dashboard", "Courses", "Users", "Change-password", "Login"]
 
 const DrawerComp = () => {
