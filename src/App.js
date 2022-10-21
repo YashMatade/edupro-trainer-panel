@@ -2,8 +2,10 @@ import './App.css';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import  Dashboard  from './components/Dashboard/Dashboard';
+import  Dashboard  from './components/dashboard/Dashboard';
 import Courses from './components/courses/Courses';
+import Users from './components/users/Users';
+import ChngPass from './components/change-password/ChngPass';
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/courses" element={<Courses />} />
+          <Route path="/users" element={<Users />} />
+          <Route path="/changepassword" element={<ChngPass />} />
         </Routes>
         <Footer />
       </BrowserRouter>

@@ -1,84 +1,144 @@
-import * as React from 'react';
-import PropTypes from 'prop-types';
-import Button from '@mui/material/Button';
-import { styled } from '@mui/material/styles';
-import Dialog from '@mui/material/Dialog';
-import DialogTitle from '@mui/material/DialogTitle';
-import DialogActions from '@mui/material/DialogActions';
-import IconButton from '@mui/material/IconButton';
-import CloseIcon from '@mui/icons-material/Close';
-import { Tab } from '@mui/material';
-import TextField from '@mui/material/TextField';
+// import * as React from 'react';
+// import PropTypes from 'prop-types';
+// import Button from '@mui/material/Button';
+// import { styled } from '@mui/material/styles';
+// import Dialog from '@mui/material/Dialog';
+// import DialogTitle from '@mui/material/DialogTitle';
+// import DialogActions from '@mui/material/DialogActions';
+// import IconButton from '@mui/material/IconButton';
+// import CloseIcon from '@mui/icons-material/Close';
+// import { Tab } from '@mui/material';
+// import TextField from '@mui/material/TextField';
+// import Box from '@mui/material/Box';
+
+// const BootstrapDialog = styled(Dialog)(({ theme }) => ({
+//   '& .MuiDialogContent-root': {
+//     padding: theme.spacing(2),
+//   },
+//   '& .MuiDialogActions-root': {
+//     padding: theme.spacing(1),
+//   },
+// }));
+
+// const BootstrapDialogTitle = (props) => {
+//   const { children, onClose, ...other } = props;
+
+//   return (
+
+//     <DialogTitle sx={{ m: 0, p: 2 }} {...other}>
+//       {children}
+//       {onClose ? (
+//         <IconButton
+//           aria-label="close"
+//           onClick={onClose}
+//           sx={{
+//             position: 'absolute',
+//             right: 1,
+//             top: 1,
+//             color: (theme) => theme.palette.grey[500],
+//           }}
 
 
-const BootstrapDialog = styled(Dialog)(({ theme }) => ({
-  '& .MuiDialogContent-root': {
-    padding: theme.spacing(2),
-  },
-  '& .MuiDialogActions-root': {
-    padding: theme.spacing(1),
-  },
-}));
+//         >
+//           <CloseIcon />
+//         </IconButton>
+//       ) : null}
+//     </DialogTitle>
+//   );
+// };
 
-const BootstrapDialogTitle = (props) => {
-  const { children, onClose, ...other } = props;
+// BootstrapDialogTitle.propTypes = {
+//   children: PropTypes.node,
+//   onClose: PropTypes.func.isRequired,
+// };
 
-  return (
-    <DialogTitle sx={{ m: 0, p: 2 }} {...other}>
-      {children}
-      {onClose ? (
-        <IconButton
-          aria-label="close"
-          onClick={onClose}
-          sx={{
-            position: 'absolute',
-            right: 1,
-            top: 1,
-            color: (theme) => theme.palette.grey[500],
-          }}
-        >
-          <CloseIcon />
-        </IconButton>
-      ) : null}
-    </DialogTitle>
-  );
-};
+// export default function LoginForm() {
+//   const [open, setOpen] = React.useState(false);
 
-BootstrapDialogTitle.propTypes = {
-  children: PropTypes.node,
-  onClose: PropTypes.func.isRequired,
-};
+//   const handleClickOpen = () => {
+//     setOpen(true);
+//   };
+//   const handleClose = () => {
+//     setOpen(false);
+//   };
 
-export default function LoginForm() {
-  const [open, setOpen] = React.useState(false);
+//   return (
+//     <div>
+//       <Tab label="Login" onClick={handleClickOpen}/>
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-  const handleClose = () => {
-    setOpen(false);
-  };
+//       <BootstrapDialog
+//         onClose={handleClose}
+//         aria-labelledby="customized-dialog-title"
+//         open={open}
+//       >
+//         <BootstrapDialogTitle id="customized-dialog-title" sx={{margin:"auto",marginBottom:"20px"}}  onClose={handleClose}>
+//           Trainer Login
+//         </BootstrapDialogTitle>
+//         <TextField id="outlined-basic" label="UserName" variant="outlined" sx={{marginRight:"50px",marginLeft:"50px",marginBottom:"20px"}}/>
+//         <TextField id="outlined-basic" label="Password" variant="outlined" sx={{marginRight:"50px",marginLeft:"50px",marginBottom:"10px"}}/>
+//         <DialogActions sx={{margin:"auto"}}>
+//           <Button autoFocus onClick={handleClose}>
+//           Login
+//           </Button>
+//         </DialogActions>
+//       </BootstrapDialog>
 
-  return (
-    <div>
-      <Tab label="Login" onClick={handleClickOpen}/>
-      
-      <BootstrapDialog
-        onClose={handleClose}
-        aria-labelledby="customized-dialog-title"
-        open={open}
+//     </div>
+//   );
+// }
+
+import React,{useState} from 'react';
+import { TextField,Typography,Box,Button,Dialog,useMediaQuery,useTheme } from '@mui/material';
+
+const LoginForm = () => {
+  const [value,setvalue] = useState();
+  const theme = useTheme();
+  console.log(theme);
+  const isMatch = useMediaQuery(theme.breakpoints.down("md"));
+  console.log(isMatch);
+
+  const[inputs,setInputs]=useState({
+    name:"",
+    email:"",
+    password:"",
+  });
+  const handleChange=(e)=>{
+    setInputs((prevState)=>({
+      ...prevState,
+      [e.target.name]:e.target.value
+    }))
+  }
+  const[open,setOpen]=useState(false);
+
+  return ( 
+    <>
+    <Button onClick={()=>setOpen(true)} sx={{marginLeft:'auto'}} variant='contained'>Login{""}</Button>
+  <Dialog open={open} onClose={()=>setOpen(false)}>
+  <form >
+      <Box display="flex" 
+      flexDirection={"column"} 
+      maxWidth={400} 
+      alignItems="center"
+      justifyContent={'center'} 
+      margin="auto"
+      marginTop={2} 
+      padding={5} 
+      borderRadius={5} 
+      boxShadow={"5px 5px 10px #ccc"}
+      sx={{
+        ":hover":{
+          boxShadow:'10px 10px 20px #ccc',
+        },
+      }}
       >
-        <BootstrapDialogTitle id="customized-dialog-title" sx={{margin:"auto",marginBottom:"20px"}}  onClose={handleClose}>
-          Trainer Login
-        </BootstrapDialogTitle>
-        <TextField id="outlined-basic" label="UserName" variant="outlined" sx={{marginRight:"50px",marginLeft:"50px",marginBottom:"20px"}}/>
-        <TextField id="outlined-basic" label="Password" variant="outlined" sx={{marginRight:"50px",marginLeft:"50px",marginBottom:"10px"}}/>
-        <DialogActions sx={{margin:"auto"}}>
-          <Button autoFocus onClick={handleClose}>
-          Login
-          </Button>
-        </DialogActions>
-      </BootstrapDialog>
-    </div>
-  );
+        <Typography variant='h2' padding={3} textAlign="center">Login</Typography>
+        <TextField onChange={handleChange} name="name"value={inputs.name} margin="normal" type={'text'} varient='outlined' placeholder='Name'/>
+        <TextField onChange={handleChange} name="email" value={inputs.email} margin="normal" type={'email'} varient='outlined' placeholder='Email'/>
+        <TextField onChange={handleChange} name="password" value={inputs.password}margin="normal" type={'password'} varient='outlined' placeholder='Password'/>
+        <Button sx={{marginTop:3,borderRadius:3}} onClick={()=>setOpen(false)} varient='contained'color='warning'>Login</Button>
+      </Box>
+  </form> 
+  </Dialog> 
+  </>)
 }
+export default LoginForm;

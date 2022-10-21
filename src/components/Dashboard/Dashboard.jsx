@@ -7,18 +7,16 @@ const Dashboard = () => {
     return (
         <div style={{marginTop:"100px"}}>
             <Breadcrumbs aria-label="breadcrumb">
-                <Link underline="hover" color="primary" href="/">
-                    MUI
-                </Link>
                 <Link
                     underline="hover"
                     color="primary"
                     href="/material-ui/getting-started/installation/"
                 >
-                    Core
+                    Trainer Panel
                 </Link>
-                <Typography color="primary">Breadcrumbs</Typography>
+                <Typography color="primary">Dashboard</Typography>
             </Breadcrumbs>
+            {/* components */}
             <Cards />
             <Barchart/>
         </div>
