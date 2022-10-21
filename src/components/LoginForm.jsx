@@ -102,7 +102,7 @@ const LoginForm = () => {
         <Grid container spacing={8}>
           <Grid item xs={12} sm={8}>
          
-            <img  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+            <img style={{width:"200px"}} src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
                alt="Sample image" />
       
           </Grid>
