@@ -4,7 +4,10 @@ import Container from '@mui/material/Container'
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box'
 import Link from '@mui/material/Link'
+import { useLocation } from 'react-router-dom';
 const Footer = () => {
+  let path = useLocation();
+    if (path.pathname !== '/') {
   return (
     <>
 
@@ -36,11 +39,35 @@ const Footer = () => {
               </Box> */}
             </Grid>
           </Grid>
+          <Grid container spacing={6} style={{marginTop:"20px",paddingBottom:"20px"}}>
+          <Grid item xs={12} sm={4}>
+                <Box>
+              © Copyright <b> Edupro</b>. All Rights Reserved
+              </Box>
+              
+            </Grid>
+          <Grid item xs={12} sm={4}>
+                {/* <Box>
+              © Copyright <b> Edupro</b>. All Rights Reserved
+              </Box> */}
+              
+            </Grid>
+          <Grid item xs={12} sm={4}>
+                <Box>
+             Designed by  Edupro  
+              </Box>
+              
+            </Grid>
+          </Grid>
+
         </Container>
       </Box>
 
     </>
   )
-}
+}else {
+  return (
+      <div> </div>)
+}}
 
 export default Footer;

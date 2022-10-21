@@ -6,14 +6,18 @@ import  Dashboard  from './components/dashboard/Dashboard';
 import Courses from './components/courses/Courses';
 import Users from './components/users/Users';
 import ChngPass from './components/change-password/ChngPass';
+import TrainerLogin from './components/Login';
+import LoginForm from './components/LoginForm';
 
 function App() {
   return (
     <div className="App">
+
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path="/" element={<Dashboard />} />
+          <Route path="/" element={<LoginForm />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/courses" element={<Courses />} />
           <Route path="/users" element={<Users />} />
           <Route path="/changepassword" element={<ChngPass />} />

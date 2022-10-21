@@ -87,58 +87,54 @@
 //   );
 // }
 
-import React,{useState} from 'react';
-import { TextField,Typography,Box,Button,Dialog,useMediaQuery,useTheme } from '@mui/material';
+import React, { useState } from 'react';
+import { TextField, Typography, Box, Button, Dialog, useMediaQuery, useTheme } from '@mui/material';
+import Container from '@mui/material/Container'
+import Grid from '@mui/material/Grid';
+import ImageList from '@mui/material/ImageList';
 
 const LoginForm = () => {
-  const [value,setvalue] = useState();
-  const theme = useTheme();
-  console.log(theme);
-  const isMatch = useMediaQuery(theme.breakpoints.down("md"));
-  console.log(isMatch);
 
-  const[inputs,setInputs]=useState({
-    name:"",
-    email:"",
-    password:"",
-  });
-  const handleChange=(e)=>{
-    setInputs((prevState)=>({
-      ...prevState,
-      [e.target.name]:e.target.value
-    }))
-  }
-  const[open,setOpen]=useState(false);
 
-  return ( 
+  return (
     <>
-    <Button onClick={()=>setOpen(true)} sx={{marginLeft:'auto'}} variant='contained'>Login{""}</Button>
-  <Dialog open={open} onClose={()=>setOpen(false)}>
-  <form >
-      <Box display="flex" 
-      flexDirection={"column"} 
-      maxWidth={400} 
-      alignItems="center"
-      justifyContent={'center'} 
-      margin="auto"
-      marginTop={2} 
-      padding={5} 
-      borderRadius={5} 
-      boxShadow={"5px 5px 10px #ccc"}
-      sx={{
-        ":hover":{
-          boxShadow:'10px 10px 20px #ccc',
-        },
-      }}
-      >
-        <Typography variant='h2' padding={3} textAlign="center">Login</Typography>
-        <TextField onChange={handleChange} name="name"value={inputs.name} margin="normal" type={'text'} varient='outlined' placeholder='Name'/>
-        <TextField onChange={handleChange} name="email" value={inputs.email} margin="normal" type={'email'} varient='outlined' placeholder='Email'/>
-        <TextField onChange={handleChange} name="password" value={inputs.password}margin="normal" type={'password'} varient='outlined' placeholder='Password'/>
-        <Button sx={{marginTop:3,borderRadius:3}} onClick={()=>setOpen(false)} varient='contained'color='warning'>Login</Button>
-      </Box>
-  </form> 
-  </Dialog> 
-  </>)
+      <Container maxWidth="lg">
+        <Grid container spacing={8}>
+          <Grid item xs={12} sm={8}>
+         
+            <img  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+               alt="Sample image" />
+      
+          </Grid>
+          <Grid item xs={12} sm={4}>
+            <form >
+              <Box display="flex"
+                flexDirection={"column"}
+                maxWidth={400}
+                alignItems="center"
+                justifyContent={'center'}
+                margin="auto"
+                marginTop={10}
+                padding={5}
+                borderRadius={5}
+                boxShadow={"5px 5px 10px #ccc"}
+                sx={{
+                  ":hover": {
+                    boxShadow: '10px 10px 20px #ccc',
+                  },
+                }}
+              >
+                <Typography variant='h4' padding={3} textAlign="center">Trainer Login</Typography>
+                <TextField name="username" margin="normal" type={'text'} varient='outlined' placeholder='Userame' />
+                <TextField name="password" margin="normal" type={'password'} varient='outlined' placeholder='Password' />
+                <Button sx={{ marginTop: 3, borderRadius: 3 }} varient='contained' color='warning'>Login</Button>
+                <Button sx={{ marginTop: 3, borderRadius: 3 }} varient='contained' color='primary'>Forgot Password</Button>
+              </Box>
+            </form>
+          </Grid>
+
+        </Grid>
+      </Container>
+    </>)
 }
 export default LoginForm;
