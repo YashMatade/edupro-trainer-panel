@@ -42,7 +42,7 @@ const Footer = () => {
           <Grid container spacing={6} style={{marginTop:"20px",paddingBottom:"20px"}}>
           <Grid item xs={12} sm={4}>
                 <Box>
-              © Copyright <b> Edupro</b>. All Rights Reserved
+              © Copyright-2022 <b> Edupro</b>. All Rights Reserved
               </Box>
               
             </Grid>

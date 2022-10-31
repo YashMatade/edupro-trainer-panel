@@ -92,21 +92,29 @@ import { TextField, Typography, Box, Button, Dialog, useMediaQuery, useTheme } f
 import Container from '@mui/material/Container'
 import Grid from '@mui/material/Grid';
 import ImageList from '@mui/material/ImageList';
-
 const LoginForm = () => {
 
+  const [data,setData]=useState({
+    name:"",
+    password:""
+  });
+
+  const handleChange=()=>{
+
+  }
 
   return (
     <>
+    <div>
       <Container maxWidth="lg">
-        <Grid container spacing={8}>
-          <Grid item xs={12} sm={8}>
+        <Grid container spacing={8} >
+          <Grid item xs={12} lg={6} sm={6} >
          
-            <img style={{width:"200px"}} src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+            <img style={{width:"500px",marginTop:"100px"}} src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
                alt="Sample image" />
       
           </Grid>
-          <Grid item xs={12} sm={4}>
+          <Grid item xs={12} lg={6} sm={6}>
             <form >
               <Box display="flex"
                 flexDirection={"column"}
@@ -135,6 +143,7 @@ const LoginForm = () => {
 
         </Grid>
       </Container>
+      </div>
     </>)
 }
 export default LoginForm;

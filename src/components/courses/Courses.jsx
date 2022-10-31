@@ -11,7 +11,7 @@ const Courses = () => {
                     <Typography color="primary">Courses</Typography>
                 </Breadcrumbs>
 
-                <Button variant='contained'>Add Courses{""}</Button>
+                <Button variant='contained'>Add Course{""}</Button>
             </div>
         </>
     )

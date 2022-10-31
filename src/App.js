@@ -6,7 +6,6 @@ import  Dashboard  from './components/dashboard/Dashboard';
 import Courses from './components/courses/Courses';
 import Users from './components/users/Users';
 import ChngPass from './components/change-password/ChngPass';
-import TrainerLogin from './components/Login';
 import LoginForm from './components/LoginForm';
 
 function App() {

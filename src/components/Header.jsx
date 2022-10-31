@@ -10,7 +10,7 @@ const Navbar = () => {
     const [indicator, setIndicator] = React.useState();
     const theme = useTheme();
     const isMatch = useMediaQuery(theme.breakpoints.down('md'));
-    
+
     let path = useLocation();
     if (path.pathname !== '/') {
     return (
