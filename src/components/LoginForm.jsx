@@ -95,7 +95,7 @@ import ImageList from '@mui/material/ImageList';
 const LoginForm = () => {
 
   const [data,setData]=useState({
-    name:"",
+    email:"",
     password:""
   });
 

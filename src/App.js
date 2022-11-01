@@ -13,7 +13,9 @@ function App() {
     <div className="App">
 
       <BrowserRouter>
+
         <Header />
+
         <Routes>
           <Route path="/" element={<LoginForm />} />
           <Route path="/dashboard" element={<Dashboard />} />
@@ -21,7 +23,10 @@ function App() {
           <Route path="/users" element={<Users />} />
           <Route path="/changepassword" element={<ChngPass />} />
         </Routes>
+
+
         <Footer />
+        
       </BrowserRouter>
     </div>
   );
