@@ -7,7 +7,7 @@ import Courses from './components/courses/Courses';
 import Users from './components/users/Users';
 import ChngPass from './components/change-password/ChngPass';
 import LoginForm from './components/LoginForm';
-
+import Red from './components/Red';
 function App() {
   return (
     <div className="App">
@@ -15,7 +15,7 @@ function App() {
       <BrowserRouter>
 
         <Header />
-
+        <Red/>
         <Routes>
           <Route path="/" element={<LoginForm />} />
           <Route path="/dashboard" element={<Dashboard />} />

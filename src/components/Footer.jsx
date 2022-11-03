@@ -6,6 +6,8 @@ import Box from '@mui/material/Box'
 import Link from '@mui/material/Link'
 import { useLocation } from 'react-router-dom';
 const Footer = () => {
+  let trainername = localStorage.getItem("name");
+
   let path = useLocation();
     if (path.pathname !== '/') {
   return (
@@ -24,9 +26,9 @@ const Footer = () => {
                 </Box> */}
               </Grid>
               <Grid item xs={12} sm={10}>
-                <Box><h1>Trainer Name</h1></Box>
+                <Box><h1>{trainername}</h1></Box>
                 <Box>
-                   He is entrepreneur and trainer who trains students and professionals in area of website development, application development and data science & engineering.
+                   {trainername} is entrepreneur and trainer who trains students and professionals in area of website development, application development and data science & engineering.
                 </Box>
               </Grid>
             <Grid item xs={12} sm={1}>
